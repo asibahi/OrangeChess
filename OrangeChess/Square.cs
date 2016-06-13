@@ -31,11 +31,7 @@ namespace OrangeChess
 
         public char File
         {
-            get
-            {
-                return _fileValues[_file];
-            }
-
+            get { return _fileValues[_file]            }
             private set
             {
                 if(char.IsLetter(value) && _fileValues.ToCharArray().Contains(char.ToLower(value)))
@@ -47,12 +43,8 @@ namespace OrangeChess
 
         public byte Rank
         {
-            get
-            {
-                // to correct for 0 being the default value
-                return (byte)(_rank + 1);
-            }
-
+            // to correct for 0 being the default value
+            get { return (byte)(_rank + 1); }
             private set
             {
                 if(value <= 0 || value > 26)
