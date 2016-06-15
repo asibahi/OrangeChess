@@ -7,7 +7,7 @@ namespace OrangeChess
     {
         Color Color { get; }
         char FENChar { get; }
-        HashSet<Directions> LegalMoves { get; }
+        IEnumerable<Move> LegalMoves { get; }
 
         bool Equals(object obj);
         int GetHashCode();

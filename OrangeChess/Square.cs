@@ -28,7 +28,7 @@ namespace OrangeChess
 
         public char File
         {
-            get { return _fileValues[_file]            }
+            get { return _fileValues[_file]; }
             private set
             {
                 if(char.IsLetter(value) && _fileValues.ToCharArray().Contains(char.ToLower(value)))
