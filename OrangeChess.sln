@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrangeChess", "OrangeChess\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrangeChessTests", "OrangeChessTests\OrangeChessTests.csproj", "{AB79627F-D0D2-40A1-914F-F373F9F54332}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrangeClassicalChess", "OrangeClassicalChess\OrangeClassicalChess.csproj", "{C1A3CEEA-B082-43F6-8F93-D6262ED0616F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{AB79627F-D0D2-40A1-914F-F373F9F54332}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB79627F-D0D2-40A1-914F-F373F9F54332}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB79627F-D0D2-40A1-914F-F373F9F54332}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1A3CEEA-B082-43F6-8F93-D6262ED0616F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1A3CEEA-B082-43F6-8F93-D6262ED0616F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1A3CEEA-B082-43F6-8F93-D6262ED0616F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1A3CEEA-B082-43F6-8F93-D6262ED0616F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
