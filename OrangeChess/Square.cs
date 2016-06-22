@@ -3,6 +3,9 @@ using System.Linq;
 
 namespace OrangeChess
 {
+    /// <summary>
+    /// A Struct to quickly indicate the position of a Piece on the Board in a human readable fashion.
+    /// </summary>
     public struct Square : IEquatable<Square>
     {
         const string _fileValues = "abcdefghjklmnopqrstuvwxyz"; // no i
@@ -19,15 +22,23 @@ namespace OrangeChess
             _rank = rankValue;
         }
 
+        /// <summary>Internal File Value.</summary>
         public byte FileValue => _file;
+
+        /// <summary>Internal Rank Value.</summary>
         public byte RankValue => _rank;
 
+        /// <summary>Creates a Square with the provided value..</summary>
+        /// <param name="file">File letter: any English letter except 'i'.</param>
+        /// <param name="rank">Rank number: any number between 1 and 25 inclusive.</param>
         public Square(char file, byte rank) : this()
         {
             File = file;
             Rank = rank;
         }
 
+        /// <summary>Creates a Square with the provided value.</summary>
+        /// <param name="position">Square position in algebraic notation. Must be within a 25x25 chess board.</param>
         public Square(string position) : this()
         {
             byte tmp;
@@ -38,6 +49,7 @@ namespace OrangeChess
             Rank = tmp;
         }
 
+        /// <summary>File letter</summary>
         public char File
         {
             get { return _fileValues[_file]; }
@@ -50,6 +62,7 @@ namespace OrangeChess
             }
         }
 
+        /// <summary>Rank number</summary>
         public byte Rank
         {
             // to correct for 0 being the default value
