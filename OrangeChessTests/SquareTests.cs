@@ -18,7 +18,6 @@ namespace OrangeChessTests
         [TestCase("a2")]
         [TestCase("h2")]
         [TestCase("r5")]
-        [TestCase("s26")]
         [TestCase("l25")]
         [TestCase("j1")]
         public void SquareStringCtor_ValidArguments_Works(string str)

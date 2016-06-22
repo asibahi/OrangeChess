@@ -43,12 +43,15 @@ namespace OrangeChess
             get { return (byte)(_rank + 1); }
             private set
             {
-                if(value <= 0 || value > 26)
-                    throw new ArgumentException("Rank must be between 1 and 26 inclusive");
+                if(value <= 0 || value > 25)
+                    throw new ArgumentException("Rank must be between 1 and 25 inclusive");
 
                 _rank = (byte)(value - 1);
             }
         }
+
+        public byte FileValue => _file;
+        public byte RankValue => _rank;
 
         public override string ToString() => (File + Rank.ToString());
         public bool Equals(Square other) => _rank == other._rank && _file == other._file;
