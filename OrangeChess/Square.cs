@@ -9,6 +9,19 @@ namespace OrangeChess
         byte _file; // starts from 0 at the Queenside to whatever on the Kingside
         byte _rank; // starts from 0 at White's side  to whatever on Black's side
 
+        // internal ctor to quickly translate Array positions to Squares. Might not be needed.
+        internal Square(byte fileValue, byte rankValue)
+        {
+            if(fileValue < 0 || fileValue > 24 || rankValue < 0 || rankValue > 24)
+                throw new ArgumentException("File Value and Rank Value must be between 0 and 24 inclusive");
+
+            _file = fileValue;
+            _rank = rankValue;
+        }
+
+        public byte FileValue => _file;
+        public byte RankValue => _rank;
+
         public Square(char file, byte rank) : this()
         {
             File = file;
@@ -18,7 +31,7 @@ namespace OrangeChess
         public Square(string position) : this()
         {
             byte tmp;
-            if(string.IsNullOrWhiteSpace(position) || position.Length < 2 || !byte.TryParse(position.Substring(1), out tmp))
+            if(position == null || position.Length < 2 || !byte.TryParse(position.Substring(1), out tmp))
                 throw new ArgumentException("Algebraic notation format not recognized.");
 
             File = position[0];
@@ -50,13 +63,10 @@ namespace OrangeChess
             }
         }
 
-        public byte FileValue => _file;
-        public byte RankValue => _rank;
-
         public override string ToString() => (File + Rank.ToString());
         public bool Equals(Square other) => _rank == other._rank && _file == other._file;
         public override bool Equals(object obj) => (obj is Square) && Equals((Square)obj);
-        public override int GetHashCode() => (Rank.GetHashCode() * 31) ^ File.GetHashCode();
+        public override int GetHashCode() => (Rank * 7) ^ File;
         public static bool operator ==(Square sq1, Square sq2) => sq1.Equals(sq2);
         public static bool operator !=(Square sq1, Square sq2) => !sq1.Equals(sq2);
     }
