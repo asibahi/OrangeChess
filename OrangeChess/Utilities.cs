@@ -98,12 +98,11 @@ namespace OrangeChess
             return sb.Remove(sb.Length - 1, 1).ToString(); // remove the last '/'
         }
 
-        public static Piece[,] FENToArray(string fenString)
-        {
-            var strings = fenString.Split('/');
+        //public static Piece[,] FENToArray(string fenString)
+        //{
+        //    var strings = fenString.Split('/');
 
-
-            throw new NotImplementedException();
-        }
+        //    throw new NotImplementedException();
+        //}
     }
 }
