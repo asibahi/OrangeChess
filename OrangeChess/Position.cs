@@ -13,7 +13,7 @@ namespace OrangeChess
         public sbyte FileCount { get; }
         public sbyte RankCount { get; }
 
-        public abstract Piece[][] PieceArray { get; }
+        public abstract Piece[,] PieceArray { get; }
         public abstract Color Turn { get; }
 
         public abstract int PlyCount { get; }

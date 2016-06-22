@@ -10,7 +10,7 @@ namespace OrangeClassicalChess
         {
         }
 
-        public override Piece[][] PieceArray
+        public override Piece[,] PieceArray
         {
             get;  // what if this was just an implementation detail.
         }
@@ -39,33 +39,7 @@ namespace OrangeClassicalChess
             if(!string.IsNullOrEmpty(_fenmemoized))
                 return _fenmemoized;
 
-            var sb = new StringBuilder("Chess: ");
-            var emptySquareCount = 0;
-
-            // This whole sequence here would be soooo much easier with F#'s printfn.
-            foreach(var rank in PieceArray)
-            {
-                foreach(var piece in rank)
-                    if(piece == null)
-                        emptySquareCount++;
-                    else
-                    {
-                        if(emptySquareCount > 0)
-                        {
-                            sb.Append(emptySquareCount);
-                            emptySquareCount = 0;
-                        }
-                        sb.Append(piece.FENChar);
-                    }
-                if(emptySquareCount > 0)
-                {
-                    sb.Append(emptySquareCount);
-                    emptySquareCount = 0;
-                }
-                sb.Append('/');
-            }
-
-            var formattedPosition = sb.Remove(sb.Length - 1, 1).ToString(); // remove the last '/'
+            string formattedPosition = Utilities.ArrayToFEN(PieceArray);
 
             #region CastlingRights
             var sbCastling = new StringBuilder();
@@ -91,7 +65,7 @@ namespace OrangeClassicalChess
             _fenmemoized =
                 string.Format
                 (
-                    "{0} {1} {2} {3} {4} {5}",
+                    "Chess: {0} {1} {2} {3} {4} {5}",
                     formattedPosition,
                     Turn == Color.White ? 'w' : 'b',
                     castling,
@@ -102,6 +76,8 @@ namespace OrangeClassicalChess
 
             return _fenmemoized;
         }
+
+
 
         public override bool Equals(Position other) => GetType().Equals(other.GetType()) && ToString() == other.ToString();
         public override bool Equals(object obj) => obj is Position && Equals(obj as Position);
