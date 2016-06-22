@@ -3,7 +3,6 @@ using System.Linq;
 
 namespace OrangeChess
 {
-    // I don't even know if I want this !!
     public struct Square : IEquatable<Square>
     {
         const string _fileValues = "abcdefghjklmnopqrstuvwxyz"; // no i
@@ -31,10 +30,10 @@ namespace OrangeChess
             get { return _fileValues[_file]; }
             private set
             {
-                if(char.IsLetter(value) && _fileValues.ToCharArray().Contains(char.ToLower(value)))
-                    _file = (byte)_fileValues.IndexOf(char.ToLower(value));
-                else
+                if(!char.IsLetter(value) || !_fileValues.ToCharArray().Contains(char.ToLower(value)))
                     throw new ArgumentException("File must be an English letter other than 'i'");
+
+                _file = (byte)_fileValues.IndexOf(char.ToLower(value));
             }
         }
 
